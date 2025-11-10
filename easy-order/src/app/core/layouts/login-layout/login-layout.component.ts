@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'eo-root',
+  selector: 'eo-login-layout',
   standalone: true,
   imports: [
     RouterOutlet
   ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  templateUrl: './login-layout.component.html',
+  styleUrl: './login-layout.component.scss'
 })
-export class AppComponent {
+export class LoginLayoutComponent {
+
 }

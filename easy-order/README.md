@@ -1,27 +1,124 @@
-# EasyOrder
+# 🛍️ Easy Order
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
+Este projeto é uma aplicação Angular que simula um sistema de pedidos, utilizando o **JSON Server** como banco de dados fake para testes locais.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🚀 Tecnologias
 
-## Code scaffolding
+- [Angular](https://angular.io/)
+- [PrimeNG](https://www.primefaces.org/primeng/)
+- [JSON Server](https://github.com/typicode/json-server)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## 📁 Estrutura do Projeto
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
+easy-order/
+├── src/
+│   ├── app/
+│   │   ├── core/              # Serviços, guardas e interceptors
+│   │   ├── features/          # Módulos de funcionalidades (ex: pedidos, produtos, etc.)
+│   │   ├── shared/            # Componentes e diretivas compartilhadas
+│   │   ├── app.component.ts   # Componente raiz
+│   │   └── app.routes.ts      # Rotas principais
+│   └── db.json                # Banco de dados fake (JSON Server)
+└── README.md
+```
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## ⚙️ Configuração do Ambiente
 
-## Running end-to-end tests
+### 1️⃣ Instale as dependências
+```bash
+npm install
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### 2️⃣ Instale o JSON Server globalmente (se ainda não tiver)
+```bash
+npm install -g json-server
+```
 
-## Further help
+### 3️⃣ Inicie o servidor fake (banco de dados)
+No diretório `src/app/features`, execute:
+```bash
+json-server --watch db.json --port 3000
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Isso criará um servidor local disponível em:
+```
+http://localhost:3000
+```
+
+---
+
+## 💾 Exemplo de `db.json`
+
+```json
+{
+  "products": [
+    { "id": 1, "name": "Camiseta", "price": 49.9 },
+    { "id": 2, "name": "Calça Jeans", "price": 89.9 },
+    { "id": 3, "name": "Tênis", "price": 199.9 }
+  ],
+  "orders": [
+    { "id": 1, "productId": 1, "quantity": 2 },
+    { "id": 2, "productId": 3, "quantity": 1 }
+  ]
+}
+```
+
+---
+
+## 🖥️ Rodando o projeto
+
+### Servidor Angular
+```bash
+ng serve
+```
+
+O app ficará disponível em:
+```
+http://localhost:4200
+```
+
+### Servidor JSON (Fake API)
+```bash
+json-server --watch db.json --port 3000
+```
+
+---
+
+## 🔗 Exemplo de Consumo da API
+
+```typescript
+this.http.get('http://localhost:3000/products').subscribe((data) => {
+  console.log(data);
+});
+```
+
+---
+
+## 🧱 Estrutura de Layout
+
+- `HeaderComponent` → Cabeçalho principal (não aparece na tela de login)
+- `SidebarComponent` → Menu lateral
+- `AuthLayoutComponent` → Estrutura que agrupa header + sidebar + conteúdo
+
+---
+
+## 📌 Observações
+
+- O `JSON Server` é usado apenas para simulação de dados.
+- Em produção, o projeto deve consumir uma **API real**.
+- Se o arquivo `db.json` não for encontrado, verifique se está na pasta correta (`src/app/features`).
+
+---
+
+## 👨‍💻 Autor
+
+**Leonardo Rossi Quines**  
+Desenvolvedor Web — Angular & .NET  
+📧 [rossiquines@gmail.com](mailto:rossiquines@gmail.com)

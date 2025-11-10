@@ -1,17 +1,19 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
-  selector: 'app-login',
+  selector: 'eo-login',
   standalone: true,
   imports: [
     InputTextModule,
     FormsModule,
     FloatLabelModule,
-    ButtonModule
+    ButtonModule,
+    RouterLink
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
