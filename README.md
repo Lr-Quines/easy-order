@@ -117,8 +117,16 @@ this.http.get('http://localhost:3000/products').subscribe((data) => {
 
 ---
 
-## 👨‍💻 Autor
+## 👨‍💻 Autores
+
+**Adanarys Samara Mendonça de Souza**  
+📧 [email@email.com](mailto:email@email.com)
+
+**Jade Turcato Soares**  
+📧 [email@email.com](mailto:email@email.com)
+
+**Júlia de Moura Schivinscki**  
+📧 [jschivinscki@gmail.com](mailto:jschivinscki@gmail.com)
 
 **Leonardo Rossi Quines**  
-Desenvolvedor Web — Angular & .NET  
 📧 [rossiquines@gmail.com](mailto:rossiquines@gmail.com)
