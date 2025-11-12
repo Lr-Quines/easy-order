@@ -5,26 +5,27 @@ import { ButtonModule } from 'primeng/button';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
-import { AuthContainerComponent } from '../auth-container/auth-container.component';
+import { AuthContainerComponent } from "../auth-container/auth-container.component";
 
 @Component({
-  selector: 'eo-login',
+  selector: 'eo-create-account',
   standalone: true,
   imports: [
     AuthContainerComponent,
-    InputTextModule,
-    FormsModule,
     FloatLabelModule,
+    PasswordModule,
     ButtonModule,
+    FormsModule,
     RouterLink,
-    PasswordModule
+    InputTextModule
   ],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  templateUrl: './create-account.component.html',
+  styleUrl: './create-account.component.scss'
 })
-export class LoginComponent {
+export class CreateAccountComponent {
 
   protected username: string = '';
   protected password: string = '';
+  protected confirmPassword: string = '';
 
 }

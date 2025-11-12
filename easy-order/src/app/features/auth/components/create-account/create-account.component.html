@@ -5,14 +5,18 @@
       <label for="username"> Usuário </label>
     </p-floatLabel>
     <p-floatLabel>
-      <p-password [(ngModel)]="password"/>
+      <p-password id="password" [(ngModel)]="password"/>
       <label for="password"> Senha </label>
     </p-floatLabel>
+    <p-floatLabel>
+      <p-password id="confirm-password" [(ngModel)]="confirmPassword" [feedback]="false" />
+      <label for="confirm-password"> Confirmar senha </label>
+    </p-floatLabel>
     <div class="button">
-      <p-button label="Entrar" routerLink="/home" />
+      <p-button label="Cadastrar" routerLink="/home" />
     </div>
     <div class="button">
-      <p-button label="Criar conta" [link]="true"  routerLink="/create-account"/>
+      <p-button label="Voltar" [link]="true" routerLink="/login"/>
     </div>
   </div>
 </eo-auth-container>

@@ -4,16 +4,16 @@ import { HeaderComponent } from '../header/header.component';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 
 @Component({
-  selector: 'eo-auth-layout',
+  selector: 'eo-product-layout',
   standalone: true,
   imports: [
     RouterOutlet,
     SidebarComponent,
     HeaderComponent
   ],
-  templateUrl: './auth-layout.component.html',
-  styleUrl: './auth-layout.component.scss'
+  templateUrl: './product-layout.component.html',
+  styleUrl: './product-layout.component.scss'
 })
-export class AuthLayoutComponent {
+export class ProductLayoutComponent {
 
 }
