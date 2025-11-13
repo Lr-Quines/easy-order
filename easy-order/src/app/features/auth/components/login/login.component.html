@@ -9,10 +9,11 @@
       <label for="password"> Senha </label>
     </p-floatLabel>
     <div class="button">
-      <p-button label="Entrar" routerLink="/home" />
+      <p-button label="Entrar" (onClick)="teste()" />
     </div>
     <div class="button">
-      <p-button label="Criar conta" [link]="true"  routerLink="/create-account"/>
+      <p-button label="Criar conta" [link]="true" routerLink="/create-account"/>
     </div>
   </div>
+  <p-toast />
 </eo-auth-container>
