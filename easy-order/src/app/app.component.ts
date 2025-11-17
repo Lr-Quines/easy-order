@@ -1,12 +1,14 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { PrimeNGConfig } from 'primeng/api';
+import { SearchComponent } from '../app/features/search/search.component';
 
 @Component({
   selector: 'eo-root',
   standalone: true,
   imports: [
-    RouterOutlet
+    RouterOutlet,
+    SearchComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
