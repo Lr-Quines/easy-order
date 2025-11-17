@@ -7,10 +7,10 @@ import { HomeComponent } from './features/home/components/home/home.component';
 
 export const routes: Routes = [
   {
-    path: '',
+    path: 'easy-order',
     component: ProductLayoutComponent,
     children: [
-      { path: 'home', component: HomeComponent, title: 'Página inicial' }
+      { path: '', component: HomeComponent, title: 'Página inicial' }
     ],
   },
   {

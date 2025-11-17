@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { PrimeNGConfig } from 'primeng/api';
-import { SearchComponent } from '../app/features/search/search.component';
+import { SearchComponent } from './shared/components/search/search.component';
 
 @Component({
   selector: 'eo-root',
