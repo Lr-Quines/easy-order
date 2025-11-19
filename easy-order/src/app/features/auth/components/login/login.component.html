@@ -1,11 +1,11 @@
 <eo-auth-container>
   <div class="infos">
     <p-floatLabel>
-      <input pInputText id="username" [(ngModel)]="username" />
+      <input pInputText id="username" [(ngModel)]="user.username" />
       <label for="username"> Usuário </label>
     </p-floatLabel>
     <p-floatLabel>
-      <p-password [(ngModel)]="password"/>
+      <p-password [(ngModel)]="user.password"/>
       <label for="password"> Senha </label>
     </p-floatLabel>
     <div class="button">
@@ -15,5 +15,4 @@
       <p-button label="Criar conta" [link]="true" routerLink="/create-account"/>
     </div>
   </div>
-  <p-toast />
 </eo-auth-container>

@@ -1,12 +1,14 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { PrimeNGConfig } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'eo-root',
   standalone: true,
   imports: [
-    RouterOutlet
+    RouterOutlet,
+    ToastModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

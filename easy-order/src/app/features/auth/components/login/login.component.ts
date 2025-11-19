@@ -6,7 +6,7 @@ import { ButtonModule } from 'primeng/button';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
-import { ToastModule } from 'primeng/toast';
+import { User } from '../../../../core/models/user.model';
 import { AuthContainerComponent } from '../auth-container/auth-container.component';
 
 @Component({
@@ -19,21 +19,18 @@ import { AuthContainerComponent } from '../auth-container/auth-container.compone
     FloatLabelModule,
     ButtonModule,
     RouterLink,
-    PasswordModule,
-    ToastModule
-  ],
-  providers: [
-    MessageService
+    PasswordModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
 
+  // #region ==========> PROPERTIES <==========
   private readonly _MESSAGE_SERVICE = inject(MessageService);
 
-  protected username: string = '';
-  protected password: string = '';
+  protected user: User = {} as User;
+  // #endregion ==========> PROPERTIES <==========
 
   protected teste(): void {
     this._MESSAGE_SERVICE.add({

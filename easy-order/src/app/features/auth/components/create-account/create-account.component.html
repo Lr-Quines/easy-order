@@ -1,22 +1,26 @@
 <eo-auth-container>
-  <div class="infos">
+  <form [formGroup]="FORM" class="infos">
     <p-floatLabel>
-      <input pInputText id="username" [(ngModel)]="username" />
+      <input pInputText id="username" formControlName="username"
+        [class]="isInvalid('username') ? 'ng-invalid ng-dirty' : ''" />
       <label for="username"> Usuário </label>
     </p-floatLabel>
     <p-floatLabel>
-      <p-password id="password" [(ngModel)]="password"/>
+      <p-password id="password" formControlName="password" />
       <label for="password"> Senha </label>
     </p-floatLabel>
     <p-floatLabel>
-      <p-password id="confirm-password" [(ngModel)]="confirmPassword" [feedback]="false" />
+      <p-password id="confirm-password" formControlName="confirmPassword" [feedback]="false" />
       <label for="confirm-password"> Confirmar senha </label>
     </p-floatLabel>
+    @if (FORM.hasError('passwordMismatch') && FORM.get('confirmPassword')?.touched) {
+      <div> Senhas não coincidem. </div>
+    }
     <div class="button">
-      <p-button label="Cadastrar" (onClick)="teste()" />
+      <p-button label="Cadastrar" (onClick)="create()" />
     </div>
     <div class="button">
-      <p-button label="Voltar" [link]="true" routerLink="/login"/>
+      <p-button label="Voltar" [link]="true" routerLink="/login" />
     </div>
-  </div>
+  </form>
 </eo-auth-container>
