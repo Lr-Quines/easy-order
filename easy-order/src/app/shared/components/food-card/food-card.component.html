@@ -1,13 +1,15 @@
 <div class="card-component">
-    <p-card header="Advanced Card" [style]="{ width: '360px' }">
+    <p-card [style]="{ width: '360px' }">
         <ng-template pTemplate="header">
-            <img alt="Card" src="https://s.yimg.com/ny/api/res/1.2/Xj5s1VFZKNLvx9l2pkDarg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04OTk-/https://media.zenfs.com/en/app-com-asbury-park-press/d9f6f69794d493f82215d0eea04f7d44" />
+            <img [alt]="item?.nome" [src]="item?.imagem" />
         </ng-template>
-        <p>
-            Produto descrição
-        </p>
-            <div>
-             <p-button label="Adicionar ao carrinho" [raised]="true" severity="warning" />
-            </div>
+        <h2> {{item?.nome}} </h2>
+        <p>  {{item?.descricao}} </p>
+        <div class="preco">
+            <span> R$ {{item?.preco}} </span>
+        </div>
+        <div>
+            <p-button label="Adicionar ao carrinho" [raised]="true" severity="warning" />
+        </div>
     </p-card>
 <div>

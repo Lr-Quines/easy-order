@@ -6,6 +6,7 @@ import { FoodCardComponent } from '../../../../shared/components/food-card/food-
 import { NgFor } from '@angular/common';
 import { FormsModule } from "@angular/forms";
 import { FoodListService } from '../../../../core/services/food-list.service'
+import { MenuItem } from '../../data/menu-items';
 
 
 
@@ -17,13 +18,19 @@ import { FoodListService } from '../../../../core/services/food-list.service'
     CardModule,
     SearchComponent,
     NgFor,
-    FormsModule, 
-    
+    FormsModule,
+    FoodCardComponent,
 ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  foods: MenuItem [] = [];
 
+  constructor(private foodService: FoodListService) {}
+
+  ngOnInit() {
+    this.foods = this.foodService.getFood;
+  }
 }
 

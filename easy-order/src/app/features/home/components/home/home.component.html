@@ -2,8 +2,8 @@
 
 
 <div class="grid">
-  <div class="col-12 md:col-4" *ngFor="let item of getFood"> 
-
-  </div> 
+  <div *ngFor="let item of foods">
+    <food-card-component [item]="item"> </food-card-component>
+  <div>
 
 </div>

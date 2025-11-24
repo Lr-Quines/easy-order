@@ -6,3 +6,18 @@
 p {
     padding-bottom: 10px;
 }
+
+.card-component img {
+    width: 100%;
+    height: 220px;      
+    object-fit: cover;  
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.preco {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+}
+
