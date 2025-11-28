@@ -1,0 +1,38 @@
+<section class="speeddial-circle-demo">
+  <div class="header">
+    <h2> Restaurantes </h2>
+  </div>
+  <p-divider />
+
+  <p-table
+    styleClass="p-datatable-striped"
+    [columns]="columns"
+    [value]="restaurants"
+    [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        @for (column of columns; track column.field) {
+          <th>
+            {{ column.header }}
+          </th>
+        }
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr>
+        @for (column of columns; track column.field) {
+          <td>
+            {{ rowData[column.field] }}
+          </td>
+        }
+      </tr>
+    </ng-template>
+  </p-table>
+</section>
+
+<p-speedDial (onClick)="showRestaurantFormDialog = true" />
+
+<p-dialog header="Restaurante" [modal]="true" [(visible)]="showRestaurantFormDialog" [style]="{ width: '50rem' }">
+  <eo-restaurant-form-dialog
+    (closeDialog)="showRestaurantFormDialog = false"/>
+</p-dialog>

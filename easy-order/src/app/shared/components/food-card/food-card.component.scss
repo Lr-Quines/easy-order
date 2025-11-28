@@ -9,10 +9,10 @@ p {
 
 .card-component img {
     width: 100%;
-    height: 220px;      
-    object-fit: cover;  
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
+    height: 220px;
+    object-fit: cover;
+    border-top-left-radius: 1px;
+    border-top-right-radius: 1px;
 }
 
 .preco {
@@ -21,3 +21,24 @@ p {
     padding: 10px;
 }
 
+
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px;
+}
+
+
+.pInputText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  border-radius: 10px;
+  size: 30px;
+}

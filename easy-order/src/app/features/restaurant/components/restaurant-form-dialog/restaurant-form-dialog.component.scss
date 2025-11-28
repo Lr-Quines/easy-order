@@ -1,0 +1,24 @@
+@use '../../../../../styles/variables' as *;
+
+.gap-3 {
+  gap: $space-lg;
+  display: grid;
+}
+
+label {
+  margin-bottom: 8px;
+}
+
+p-calendar {
+  z-index: 100;
+}
+
+.div-input {
+  display: grid;
+}
+
+.buttons {
+  display: flex;
+  justify-content: end;
+  gap: $space-md;
+}

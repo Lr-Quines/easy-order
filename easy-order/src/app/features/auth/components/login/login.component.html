@@ -1,15 +1,17 @@
 <eo-auth-container>
   <div class="infos">
     <p-floatLabel>
-      <input pInputText id="username" [(ngModel)]="user.username" />
+      <input pInputText id="username" [(ngModel)]="user.username"
+        (keyup.enter)="readByUsernameAndPassword()" />
       <label for="username"> Usuário </label>
     </p-floatLabel>
     <p-floatLabel>
-      <p-password [(ngModel)]="user.password"/>
+      <p-password [feedback]="false" [(ngModel)]="user.password"
+        (keyup.enter)="readByUsernameAndPassword()" />
       <label for="password"> Senha </label>
     </p-floatLabel>
     <div class="button">
-      <p-button label="Entrar" (onClick)="teste()" />
+      <p-button label="Entrar" (onClick)="readByUsernameAndPassword()" />
     </div>
     <div class="button">
       <p-button label="Criar conta" [link]="true" routerLink="/create-account"/>

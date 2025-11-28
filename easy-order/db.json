@@ -1,3 +1,14 @@
 {
-  "users": []
+  "users": [
+    {
+      "id": "f916",
+      "username": "lrquines",
+      "password": "1"
+    },
+    {
+      "id": "6a9f",
+      "username": "jubisca",
+      "password": "1"
+    }
+  ]
 }

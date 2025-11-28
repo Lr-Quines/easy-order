@@ -21,4 +21,9 @@ export class UserService {
       .pipe(map(users => users.length > 0 ? users[0] : undefined));
   }
 
+  public readByUsernameAndPassword(username: string, password: string): Observable<User | undefined> {
+    return this._HTTP_CLIENT.get<User[]>(`${this._DEFAULT_URL}?username=${username}&password=${password}`)
+      .pipe(map(users => users.length > 0 ? users[0] : undefined));
+  }
+
 }
