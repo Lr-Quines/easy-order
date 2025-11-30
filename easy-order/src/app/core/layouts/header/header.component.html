@@ -9,4 +9,41 @@
       [model]="items"
       [home]="home" />
   </div>
+
+  <i class="pi pi-comment my-icon" pTooltip="Chat" (click)="isOpenChat = true"></i>
 </div>
+
+@if (isOpenChat) {
+  <div class="chat">
+    <div class="chat-header">
+      <div class="d-flex align-items-center">
+        <img src="../../../../assets/suporte.jpg">
+        <div class="chat-name"> Leonardo (suporte) </div>
+      </div>
+      <i class="pi pi-times" (click)="isOpenChat = false" pTooltip="Fechar"></i>
+    </div>
+    <div class="chat-body">
+
+      @for (chatMessage of CHAT_MESSAGES; track $index) {
+
+        <div class="d-flex"
+          [ngClass]="{
+            'justify-content-end': chatMessage.isMyMessage,
+            'justify-content-start': !chatMessage.isMyMessage,
+            'mt-16px': !$first }">
+
+          <div class="chat-message"
+            [class]="chatMessage.isMyMessage ? 'my-message' : 'support-message'"> {{ chatMessage.message }} </div>
+
+        </div>
+      }
+
+    </div>
+    <div class="chat-footer">
+      <input pInputText type="text" id="text-message" variant="filled"
+        [(ngModel)]="message"
+        (keyup.enter)="addChatMessage()" />
+      <i class="pi pi-send" (click)="addChatMessage()"></i>
+    </div>
+  </div>
+}
