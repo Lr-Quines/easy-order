@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { Component, inject, OnInit } from '@angular/core';
 import { DialogModule } from 'primeng/dialog';
 import { DividerModule } from 'primeng/divider';
 import { SpeedDialModule } from 'primeng/speeddial';
 import { TableModule } from 'primeng/table';
+import { TooltipModule } from 'primeng/tooltip';
 import { Restaurant } from '../../../../core/models/restaurant.model';
+import { RestaurantService } from '../../services/restaurant.service';
 import { RestaurantFormDialogComponent } from '../restaurant-form-dialog/restaurant-form-dialog.component';
 
 @Component({
@@ -14,7 +17,9 @@ import { RestaurantFormDialogComponent } from '../restaurant-form-dialog/restaur
     TableModule,
     SpeedDialModule,
     RestaurantFormDialogComponent,
-    DialogModule
+    DialogModule,
+    DatePipe,
+    TooltipModule
   ],
   templateUrl: './restaurant-list.component.html',
   styleUrl: './restaurant-list.component.scss'
@@ -22,6 +27,8 @@ import { RestaurantFormDialogComponent } from '../restaurant-form-dialog/restaur
 export class RestaurantListComponent implements OnInit {
 
   // #region ==========> PROPERTIES <==========
+  private readonly _RESTAURANT_SERVICE = inject(RestaurantService);
+
   protected columns: Column[] = [
     { field: 'restaurant', header: 'Restaurante' },
     { field: 'contact', header: 'Contato' },
@@ -29,29 +36,17 @@ export class RestaurantListComponent implements OnInit {
     { field: 'businessHours', header: 'Horário de funcionamento' }
   ];
 
-  protected restaurants: Restaurant[] = [
-    {
-      restaurant: 'Churrascaria e Galeteria Komka',
-      address: 'Av. Bahia, 1275 - São Geraldo, Porto Alegre - RS, 90240-550',
-      contact: '(51) 3222-1881',
-      openingHours: new Date(),
-      closingHours: new Date()
-    },
-    {
-      restaurant: 'NENI - Café, Bar e Restaurante',
-      address: 'R. Me. Verônica, 30 - Sala 3 - Centro, Gramado - RS, 95670-000',
-      contact: '(54) 3295-1190',
-      openingHours: new Date(),
-      closingHours: new Date()
-    },
-  ];
+  protected restaurants: Restaurant[] = [];
 
   protected showRestaurantFormDialog = false;
+
+  protected idToUpdate: string = '';
   // #endregion ==========> PROPERTIES <==========
 
 
   // #region ==========> LIFE CYCLE <==========
   public ngOnInit(): void {
+    this.readList();
   }
   // #endregion ==========> LIFE CYCLE <==========
 
@@ -59,6 +54,13 @@ export class RestaurantListComponent implements OnInit {
   // #region ==========> HTTP METHODS <==========
 
   // #region GET
+  protected readList(): void {
+    this._RESTAURANT_SERVICE.readList().subscribe({
+      next: (response: Restaurant[]) => {
+        this.restaurants = response;
+      }
+    })
+  }
   // #endregion GET
 
   // #region POST

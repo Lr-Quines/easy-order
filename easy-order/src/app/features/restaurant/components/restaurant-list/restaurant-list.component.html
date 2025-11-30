@@ -16,23 +16,41 @@
             {{ column.header }}
           </th>
         }
+
+        <th> Ações </th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-rowData let-columns="columns">
       <tr>
         @for (column of columns; track column.field) {
           <td>
-            {{ rowData[column.field] }}
+            @if (column.field === 'businessHours') {
+              {{ rowData['openingHours'] | date: 'HH:mm' }} até {{ rowData['closingHours'] | date: 'HH:mm' }}
+            }
+            @else {
+              {{ rowData[column.field] }}
+            }
           </td>
         }
+
+        <td>
+          <div>
+            <i class="pi pi-pen-to-square" pTooltip="Editar" tooltipPosition="top"
+              (click)="idToUpdate = rowData['id']; showRestaurantFormDialog = true"></i>
+          </div>
+        </td>
       </tr>
     </ng-template>
   </p-table>
 </section>
 
-<p-speedDial (onClick)="showRestaurantFormDialog = true" />
+<p-speedDial (onClick)="idToUpdate = ''; showRestaurantFormDialog = true" />
 
-<p-dialog header="Restaurante" [modal]="true" [(visible)]="showRestaurantFormDialog" [style]="{ width: '50rem' }">
-  <eo-restaurant-form-dialog
-    (closeDialog)="showRestaurantFormDialog = false"/>
-</p-dialog>
+@if (showRestaurantFormDialog) {
+  <p-dialog header="Restaurante" [modal]="true" [(visible)]="showRestaurantFormDialog" [style]="{ width: '50rem' }">
+    <eo-restaurant-form-dialog
+      [restaurantId]="idToUpdate"
+      (finishCreate)="readList()"
+      (closeDialog)="showRestaurantFormDialog = false"/>
+  </p-dialog>
+}

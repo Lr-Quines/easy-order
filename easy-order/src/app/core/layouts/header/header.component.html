@@ -1,10 +1,12 @@
 <div class="header">
-  <p-button
-    (onClick)="SIDEBAR_STATE_SERVICE.sidebarVisible = !SIDEBAR_STATE_SERVICE.sidebarVisible"
-    icon="pi pi-bars" />
+  <div class="actions">
+    <p-button
+      (onClick)="SIDEBAR_STATE_SERVICE.sidebarVisible = !SIDEBAR_STATE_SERVICE.sidebarVisible"
+      icon="pi pi-bars" />
 
-  <p-breadcrumb
-    class="max-w-full"
-    [model]="items"
-    [home]="home" />
+    <p-breadcrumb
+      class="max-w-full"
+      [model]="items"
+      [home]="home" />
+  </div>
 </div>

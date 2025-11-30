@@ -1,11 +1,13 @@
-import { Component, inject } from '@angular/core';
+import { NgFor } from '@angular/common';
+import { Component } from '@angular/core';
+import { FormsModule } from "@angular/forms";
 import { Button } from "primeng/button";
 import { CardModule } from 'primeng/card';
+import { FoodListService } from '../../../../core/services/food-list.service';
+import { FoodCardComponent } from '../../../../shared/components/food-card/food-card.component';
 import { SearchComponent } from '../../../../shared/components/search/search.component';
-import { FoodCardComponent } from '../../../../shared/components/food-card/food-card.component'
-import { NgFor } from '@angular/common';
-import { FormsModule } from "@angular/forms";
-import { FoodListService } from '../../../../core/services/food-list.service'
+import { CartComponent } from '../../../cart/components/cart/cart.component';
+import { PaymenteInfoComponent } from '../../../paymente-info/components/paymentInfo/paymente-info.component';
 import { MenuItem } from '../../data/menu-items';
 
 
@@ -20,6 +22,9 @@ import { MenuItem } from '../../data/menu-items';
     NgFor,
     FormsModule,
     FoodCardComponent,
+    PaymenteInfoComponent,
+    CartComponent
+
 ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

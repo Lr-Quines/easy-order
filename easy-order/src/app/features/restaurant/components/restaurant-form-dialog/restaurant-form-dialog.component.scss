@@ -9,12 +9,13 @@ label {
   margin-bottom: 8px;
 }
 
-p-calendar {
-  z-index: 100;
-}
-
 .div-input {
   display: grid;
+}
+
+.hours {
+  display: flex;
+  gap: $space-lg;
 }
 
 .buttons {

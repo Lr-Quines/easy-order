@@ -1,25 +1,37 @@
-<div class="gap-3">
+<form [formGroup]="FORM" class="gap-3">
   <div class="div-input">
     <label for="restaurant" class="font-semibold w-6rem">Restaurante</label>
-    <input pInputText id="restaurant" class="flex-auto" autocomplete="off" />
+    <input pInputText id="restaurant" class="flex-auto" autocomplete="off"
+      formControlName="restaurant" />
   </div>
   <div class="div-input">
     <label for="contact" class="font-semibold w-6rem">Contato</label>
-    <input pInputText id="contact" class="flex-auto" autocomplete="off" />
+    <input pInputText id="contact" class="flex-auto" autocomplete="off"
+      formControlName="contact" />
   </div>
   <div class="div-input">
     <label for="address" class="font-semibold w-6rem">Endereço</label>
-    <input pInputText id="address" class="flex-auto" autocomplete="off" />
+    <input pInputText id="address" class="flex-auto" autocomplete="off"
+      formControlName="address" />
   </div>
-  <div class="div-input">
-    <label for="businessHours" class="font-semibold w-6rem">Horário de funcionamento</label>
-    <p-calendar
-      id="businessHours"
-      selectionMode="range"
-      [readonlyInput]="true" />
+  <div class="hours">
+    <div class="div-input">
+      <label for="openingHours" class="font-semibold w-6rem">Horário de abertura</label>
+      <p-calendar
+        inputId="calendar-timeonly"
+        [timeOnly]="true"
+        formControlName="openingHours" />
+    </div>
+    <div class="div-input">
+      <label for="closingHours" class="font-semibold w-6rem">Horário de fechamento</label>
+      <p-calendar
+        inputId="calendar-timeonly"
+        [timeOnly]="true"
+        formControlName="closingHours" />
+    </div>
   </div>
   <div class="buttons">
     <p-button label="Cancelar" severity="secondary" (onClick)="EMIT_CLOSE_DIALOG.emit()" />
-    <p-button label="Salvar" />
+    <p-button label="Salvar" (onClick)="restaurantId().length > 0 ? update() : create()" />
   </div>
-</div>
+</form>

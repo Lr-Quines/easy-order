@@ -10,5 +10,23 @@
       "username": "jubisca",
       "password": "1"
     }
+  ],
+  "restaurants": [
+    {
+      "id": "63fe",
+      "restaurant": "Churrascaria e Galeteria Komka",
+      "contact": "(51) 3222-1881",
+      "address": "Av. Bahia, 1275 - São Geraldo, Porto Alegre - RS, 90240-550",
+      "openingHours": "2025-11-30T14:00:00.331Z",
+      "closingHours": "2025-11-30T17:45:00.007Z"
+    },
+    {
+      "restaurant": "NENI - Café, Bar e Restaurante",
+      "contact": "(54) 3295-1190",
+      "address": "R. Me. Verônica, 30 - Sala 3 - Centro, Gramado - RS, 95670-000",
+      "openingHours": "2025-11-30T13:00:00.180Z",
+      "closingHours": "2025-11-30T03:00:00.460Z",
+      "id": "29b2"
+    }
   ]
 }
