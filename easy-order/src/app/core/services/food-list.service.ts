@@ -1,13 +1,20 @@
-import { Injectable } from '@angular/core';
-import { MENU_ITEMS } from '../../features/home/data/menu-items';
+import { inject, Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Item } from '../models/item.model';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root'  
 })
 
 export class FoodListService {
-    get getFood() {
-        return MENU_ITEMS;
+
+    private readonly _HTTP_CLIENT = inject(HttpClient);
+    
+    private readonly _DEFAULT_URL = 'http://localhost:3000/items';
+
+    public readList(): Observable<Item[]> {
+        return this._HTTP_CLIENT.get<Item[]>(this._DEFAULT_URL);
     }
 
 }

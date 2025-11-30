@@ -1,5 +1,5 @@
 import { NgFor } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { Button } from "primeng/button";
 import { CardModule } from 'primeng/card';
@@ -8,9 +8,7 @@ import { FoodCardComponent } from '../../../../shared/components/food-card/food-
 import { SearchComponent } from '../../../../shared/components/search/search.component';
 import { CartComponent } from '../../../cart/components/cart/cart.component';
 import { PaymenteInfoComponent } from '../../../paymente-info/components/paymentInfo/paymente-info.component';
-import { MenuItem } from '../../data/menu-items';
-
-
+import { Item } from '../../../../core/models/item.model';
 
 @Component({
   selector: 'home',
@@ -29,13 +27,21 @@ import { MenuItem } from '../../data/menu-items';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
-  foods: MenuItem [] = [];
+export class HomeComponent implements OnInit {
+  foods: Item [] = [];
 
   constructor(private foodService: FoodListService) {}
 
   ngOnInit() {
-    this.foods = this.foodService.getFood;
+    this.readList();
+  }
+
+  private readList(): void {
+    this.foodService.readList().subscribe({
+      next: (response: Item[]) => {
+        this.foods = response;
+      }
+    });
   }
 }
 

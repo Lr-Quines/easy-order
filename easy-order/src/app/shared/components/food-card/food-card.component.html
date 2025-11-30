@@ -1,12 +1,12 @@
 <div class="card-component">
     <p-card [style]="{ width: '360px' }">
         <ng-template pTemplate="header">
-            <img [alt]="item?.nome" [src]="item?.imagem" />
+            <img [alt]="item().nome" [src]="item().imagem" />
         </ng-template>
-        <h2> {{item?.nome}} </h2>
-        <p>  {{item?.descricao}} </p>
+        <h2> {{item().nome}} </h2>
+        <p>  {{item().descricao}} </p>
         <div class="preco">
-            <span> R$ {{item?.preco}} </span>
+            <span> R$ {{item().preco}} </span>
         </div>
         <div>
             <p-button (onClick)="showDialog()" label="Adicionar ao carrinho" [raised]="true" severity="warning" />
@@ -17,12 +17,12 @@
 <p-dialog header="Adicione a quantidade" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
     <div class="flex align-items-center gap-3 mb-3">
       <div class="pInputText">
-        <!-- <input pInputText id="username" class="flex-auto" autocomplete="off" [(ngModel)]="qty"  /> -->
+        <input pInputText id="username" class="flex-auto" autocomplete="off" [(ngModel)]="quantity"  />
 
       </div>
-        <div class="buttons">
+        <div class="buttons">   
           <p-button label="Cancelar" [raised]="true" severity="secondary" />
-          <p-button label="Salvar" [raised]="true" severity="primary" />
+          <p-button label="Salvar" [raised]="true" severity="primary" (onClick)="create()" />
         </div>
     </div>
 </p-dialog>
