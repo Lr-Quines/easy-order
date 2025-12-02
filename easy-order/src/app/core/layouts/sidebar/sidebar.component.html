@@ -1,10 +1,7 @@
 <p-sidebar [(visible)]="SIDEBAR_STATE_SERVICE.sidebarVisible" position="left">
-  <p> Restaurantes </p>
   <div>
-    <i class="pi pi-shopping-cart"> Meus Pedidos </i>
-  </div>
-  <div>
-    <i class="pi pi-user"> Conta </i>
+    <i class="pi pi-shopping-cart" routerLink="restaurant"
+      (click)="SIDEBAR_STATE_SERVICE.sidebarVisible = false"> Restaurantes </i>
   </div>
 </p-sidebar>
 

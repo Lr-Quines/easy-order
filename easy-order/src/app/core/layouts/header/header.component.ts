@@ -38,7 +38,7 @@ export class HeaderComponent implements OnInit {
   protected message: string = '';
 
   ngOnInit() {
-    this.home = { icon: 'pi pi-home' };
+    this.home = { icon: 'pi pi-home', routerLink: '/easy-order' };
   }
 
   protected addChatMessage(): void {
